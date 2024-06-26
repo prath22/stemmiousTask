@@ -9,6 +9,7 @@ class GraphModel extends ChangeNotifier {
     "Medicine": CategoryModal(amount: 0, imgUrl: ""),
     "Entertainment": CategoryModal(amount: 0, imgUrl: ""),
     "Shopping": CategoryModal(amount: 0, imgUrl: ""),
+    "Others": CategoryModal(amount: 0, imgUrl: ""),
   };
 
   GraphModel({required this.total});

@@ -1,8 +1,6 @@
-import 'dart:developer';
+// import 'dart:developer';
 
 import 'package:expense_manager/databaseFile.dart';
-import 'package:expense_manager/expence_modal.dart';
-import 'package:expense_manager/graph_model.dart';
 import 'package:expense_manager/myutilities.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +8,7 @@ import 'package:flutter/widgets.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/provider.dart';
+// import 'package:provider/provider.dart';
 
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
@@ -30,6 +28,7 @@ List<Color> colorList = [
   const Color.fromRGBO(0, 174, 91, 0.7),
   const Color.fromRGBO(100, 62, 255, 0.7),
   const Color.fromRGBO(241, 38, 196, 0.7),
+  const Color.fromARGB(176, 63, 226, 48),
 ];
 
 dynamic database;
@@ -40,6 +39,7 @@ double fuelTotal = 0.0;
 double medicineTotal = 0.0;
 double entertainmentTotal = 0.0;
 double shoppingTotal = 0.0;
+double otherTotal = 0.0;
 
 // dataMap for storing category and its amount for pie chart
 Map<String, double> dataMap = {
@@ -48,6 +48,7 @@ Map<String, double> dataMap = {
   "Medicine": medicineTotal,
   "Entertainment": entertainmentTotal,
   "Shopping": shoppingTotal,
+  "Others": otherTotal,
 };
 
 class _ChartsState extends State {
@@ -60,6 +61,7 @@ class _ChartsState extends State {
     medicineTotal = await getTotalAmountForCategory('Medicine');
     entertainmentTotal = await getTotalAmountForCategory('Entertainment');
     shoppingTotal = await getTotalAmountForCategory('Shopping');
+    otherTotal = await getTotalAmountForCategory('Others');
 
     fetchDataMap();
   }
@@ -93,7 +95,9 @@ class _ChartsState extends State {
       "Medicine": medicineTotal,
       "Entertainment": entertainmentTotal,
       "Shopping": shoppingTotal,
+      "Others": otherTotal,
     };
+    setState(() {});
   }
 
   @override
@@ -409,6 +413,58 @@ class _ChartsState extends State {
                         children: [
                           Text(
                             "\u20B9 $shoppingTotal",
+                            style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                              color: const Color.fromRGBO(0, 0, 0, 1),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          const Icon(
+                            Icons.arrow_forward_ios,
+                            size: 10,
+                            color: Color.fromRGBO(0, 0, 0, 0.5),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            width: 40,
+                            height: 40,
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle, color: colorList[2]),
+                            child:
+                                SvgPicture.asset("assets/SVGImages/other.svg"),
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            "Others",
+                            style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              color: const Color.fromRGBO(0, 0, 0, 1),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            "\u20B9 $otherTotal",
                             style: GoogleFonts.poppins(
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
