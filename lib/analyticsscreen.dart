@@ -169,7 +169,7 @@ class _ChartsState extends State {
               ),
               const Divider(),
               const SizedBox(
-                height: 30,
+                height: 20,
               ),
               ListView(
                 shrinkWrap: true,
@@ -483,12 +483,9 @@ class _ChartsState extends State {
                       )
                     ],
                   ),
-                  const SizedBox(
-                    height: 30,
-                  ),
                   const Divider(),
                   const SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 27),
