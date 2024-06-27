@@ -48,16 +48,19 @@ class _HomePageState extends State {
 
   dynamic database;
 
+//Initializes the database and fetches initial values.
   Future<void> initiateDatabase() async {
     database = await initialiseDatabase();
     await fetchInitialValues();
   }
 
+//Fetches the initial list of expenses from the database.
   Future<void> fetchInitialValues() async {
     expenceList = await fetchExpenceData();
     setState(() {});
   }
 
+// Inserts a new expense
   Future<void> insertExpenceData(ExpenceModal obj) async {
     final localDB = await database;
 
@@ -68,6 +71,7 @@ class _HomePageState extends State {
     );
   }
 
+// delete a expense based on id
   Future<void> deleteExpenceData(ExpenceModal obj) async {
     final localDb = await database;
 
@@ -78,6 +82,7 @@ class _HomePageState extends State {
     );
   }
 
+//get the list of expences from database
   Future<List<ExpenceModal>> fetchExpenceData() async {
     final localDb = await database;
 

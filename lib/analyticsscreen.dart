@@ -66,6 +66,7 @@ class _ChartsState extends State {
     fetchDataMap();
   }
 
+// It get total amount Spent on each category
   Future<double> getTotalAmountForCategory(String category) async {
     Database db = await database;
     var result = await db.rawQuery('''
@@ -78,6 +79,8 @@ class _ChartsState extends State {
     return total;
   }
 
+
+// get total amount on all Categories
   Future<void> getExpenceTotal() async {
     final localDb = await database;
 
@@ -88,6 +91,7 @@ class _ChartsState extends State {
     setState(() {});
   }
 
+// update the dataMAp With Total for each Category
   void fetchDataMap() {
     dataMap = {
       "Food": foodTotal,

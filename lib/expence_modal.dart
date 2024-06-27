@@ -17,6 +17,8 @@ class ExpenceModal {
     required this.imgUrl,
   });
 
+  // convert the expense object to a map
+
   Map<String, dynamic> getExpenceMap() {
     return {
       "category": category,
