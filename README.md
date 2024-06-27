@@ -8,8 +8,6 @@ Flutter Expense Tracker
     <li>User can remove Expenses</li>`
     <li>User can view graph of expenses</li>
     <li>user can view their Previously added Expences And they can remove it .</li>
-
-    <li>time and date get automatically allocated at the time of creation of task</li>
-
+<li>time and date get automatically allocated at the time of creation of task</li>
     <li>Demo of this App is added into asset folder.</li>
 </ul>
