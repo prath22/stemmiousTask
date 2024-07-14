@@ -27,7 +27,6 @@ class GraphModel extends ChangeNotifier {
   }
 }
 
-
 //represent data for individual category
 class CategoryModal {
   double amount;

@@ -6,6 +6,8 @@ import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'tablescreen.dart';
+
 class MyDrawer extends StatefulWidget {
   const MyDrawer({super.key});
 
@@ -154,9 +156,54 @@ class _MyDrawerState extends State {
                 ),
               ),
             ),
+
             const SizedBox(
               height: 16,
             ),
+             GestureDetector(
+              onTap: () {
+                flg = 2;
+                setState(() {});
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>  Tabelscreen(),
+                    ));
+              },
+              child: Container(
+                padding: const EdgeInsets.only(
+                    left: 16, top: 8, bottom: 8, right: 45),
+                decoration: BoxDecoration(
+                    color: flg == 2
+                        ? const Color.fromRGBO(14, 161, 125, 0.15)
+                        : null,
+                    borderRadius: const BorderRadius.only(
+                        topRight: Radius.circular(20),
+                        bottomRight: Radius.circular(20))),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SvgPicture.asset(
+                      "assets/SVGImages/category.svg",
+                    ),
+                    const SizedBox(
+                      width: 6,
+                    ),
+                    Text(
+                      "Tables",
+                      style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: flg == 2
+                            ? const Color.fromRGBO(14, 161, 125, 1)
+                            : const Color.fromRGBO(33, 33, 33, 1),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+             ),
           ],
         ),
       ),

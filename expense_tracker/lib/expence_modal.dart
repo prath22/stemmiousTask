@@ -30,6 +30,24 @@ class ExpenceModal {
     };
   }
 
+  void update({
+    String? category,
+    String? description,
+    double? amount,
+    String? currDate,
+    String? currTime,
+    String? imgUrl,
+
+  }){
+
+    if(category != null) this.category=category;
+    if(description != null) this.description=description;
+    if(amount != null) this.amount=amount;
+    if(currDate != null) this.currDate=currDate;
+    if(currTime != null) this.currTime=currTime;
+    if(imgUrl != null) this.imgUrl=imgUrl;
+  }
+
   String toString() {
     return "$category $description $imgUrl , $currDate , $currTime $amount";
   }

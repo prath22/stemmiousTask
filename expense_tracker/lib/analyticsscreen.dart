@@ -33,6 +33,7 @@ List<Color> colorList = [
 ];
 
 dynamic database;
+bool edit = false;
 
 double totalAmt = 0.0;
 double foodTotal = 0.0;
@@ -451,7 +452,7 @@ class _ChartsState extends State {
                             decoration: BoxDecoration(
                                 shape: BoxShape.circle, color: colorList[2]),
                             child:
-                                SvgPicture.asset("assets/SVGImages/other.svg"),
+                                SvgPicture.asset("assets/SVGImages/dummy.svg"),
                           ),
                           const SizedBox(
                             width: 5,
