@@ -441,32 +441,38 @@ class _HomePageState extends State {
                   const SizedBox(
                     height: 6,
                   ),
-                  Container(
-                    width: 316,
-                    height: 36,
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(5))),
-                    child: DropdownButton<String>(
-                      value: _selectedItem,
-                      hint: Text("Select Category"),
-                      items: Provider.of<GraphModel>(context)
-                          .categoryMap
-                          .keys
-                          .map((String item) {
-                        return DropdownMenuItem<String>(
-                          value: item,
-                          child: Text(
-                            item,
-                          ),
-                        );
-                      }).toList(),
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          _selectedItem = newValue;
-                        });
-                      },
-                    ),
-                  ),
+                  StatefulBuilder(builder: (context, setState) {
+                    return Container(
+                      width: 316,
+                      height: 36,
+                      decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(5))),
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton<String>(
+                          isDense: true,
+                          hint: const Text("Select Category"),
+                          value: _selectedItem,
+                          items: Provider.of<GraphModel>(context, listen: false)
+                              .categoryMap
+                              .keys
+                              .map((String item) {
+                            return DropdownMenuItem<String>(
+                              value: item,
+                              child: Text(
+                                item,
+                              ),
+                            );
+                          }).toList(),
+                          onChanged: (String? newValue) {
+                            
+                            setState(() {
+                              _selectedItem = newValue;
+                            });
+                          },
+                        ),
+                      ),
+                    );
+                  }),
                   const SizedBox(
                     height: 20,
                   ),
@@ -688,12 +694,12 @@ class _HomePageState extends State {
               ),
               child: TextField(
                 decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.search),
+                  prefixIcon: const Icon(Icons.search),
                   hintText: 'Search',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  contentPadding: EdgeInsets.symmetric(vertical: 15),
+                  contentPadding: const EdgeInsets.symmetric(vertical: 15),
                 ),
                 onChanged: (value) async {
                   expenceList = await fetchExpenceData(value.trim());
