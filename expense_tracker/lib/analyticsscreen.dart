@@ -35,6 +35,8 @@ List<Color> colorList = [
 dynamic database;
 bool edit = false;
 
+//Variable to hold total amount
+
 double totalAmt = 0.0;
 double foodTotal = 0.0;
 double fuelTotal = 0.0;

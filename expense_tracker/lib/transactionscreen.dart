@@ -452,7 +452,7 @@ class _HomePageState extends State {
                           isDense: true,
                           hint: const Text("Select Category"),
                           value: _selectedItem,
-                          items: Provider.of<GraphModel>(context, listen: false)
+                          items: Provider.of<GraphModel>(context,)
                               .categoryMap
                               .keys
                               .map((String item) {

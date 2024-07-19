@@ -30,6 +30,8 @@ class ExpenceModal {
     };
   }
 
+  //update the property of expense object with new val
+
   void update({
     String? category,
     String? description,
@@ -47,6 +49,8 @@ class ExpenceModal {
     if(currTime != null) this.currTime=currTime;
     if(imgUrl != null) this.imgUrl=imgUrl;
   }
+
+  //it convert expense obj to string representation.
 
   String toString() {
     return "$category $description $imgUrl , $currDate , $currTime $amount";
